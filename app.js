@@ -57,7 +57,7 @@ if (progressBar) {
   }, { passive: true });
 }
 
-fetch('/content.json')
+fetch('./content.json')
   .then((r) => {
     if (!r.ok) throw new Error('Failed to fetch content');
     return r.json();

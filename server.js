@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const root = path.join(__dirname, 'public');
+const root = __dirname;
 
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
@@ -28,16 +28,20 @@ async function handleRequest(req, res) {
   try {
     const url = new URL(req.url, 'http://localhost');
     let pathname = decodeURIComponent(url.pathname);
-    if (pathname === '/' || pathname === '') {
-      pathname = '/index.html';
+    if (pathname === '/' || pathname === '' || pathname.endsWith('/')) {
+      pathname = path.posix.join(pathname, 'index.html');
     }
     const safePath = path.normalize(pathname).replace(/^(\.\.[\/\\])+/, '');
-    const file = path.resolve(root, '.' + (safePath.startsWith('/') ? safePath : '/' + safePath));
+    let file = path.resolve(root, '.' + (safePath.startsWith('/') ? safePath : '/' + safePath));
     if (!file.startsWith(root + path.sep) && file !== path.join(root, 'index.html')) {
       res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Forbidden');
       return;
     }
-    const fileStat = await stat(file);
+    let fileStat = await stat(file);
+    if (fileStat.isDirectory()) {
+      file = path.join(file, 'index.html');
+      fileStat = await stat(file);
+    }
     if (!fileStat.isFile()) {
       res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' }).end('Not found');
       return;
