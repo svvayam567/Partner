@@ -16,11 +16,11 @@
   --gradient-gold-hover: linear-gradient(135deg, #e8c98e 0%, #d4a964 100%);
 
   /* Warm Architectural Canvas & Surfaces */
-  --color-canvas: #fbf8f2;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f5eedf;
-  --color-surface-tint: #ecdfcd;
-  --color-surface-muted: #e4d4be;
+  --color-canvas: #FAF6EE;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #FDFAF4;
+  --color-surface-tint: #F7EFE1;
+  --color-surface-muted: #EDE3D1;
 
   /* Typography Colors (Zero Flat Black) */
   --color-text-title: #4b2816;
@@ -31,8 +31,8 @@
   --color-text-inverse-muted: #f2e6d6;
 
   /* Architectural Lines & Borders */
-  --color-border: #dfd3c3;
-  --color-border-subtle: #eee5d8;
+  --color-border: #EADFCB;
+  --color-border-subtle: #F3EBDD;
   --color-border-dark: #8e6a4b;
 
   /* Handcrafted Luxury Accents */
@@ -294,21 +294,21 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* Floating Action Button (FAB) */
 .fab-button {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 22px;
+  right: 22px;
   z-index: 90;
   background: var(--gradient-dark);
   color: #ffffff !important;
   border-radius: var(--radius-pill);
-  padding: 12px 20px;
+  padding: 10px 18px;
   font-family: var(--font-ui);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: 0.02em;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 8px 24px rgba(75, 40, 22, 0.22);
+  gap: 7px;
+  box-shadow: 0 6px 20px rgba(75, 40, 22, 0.22);
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
@@ -334,7 +334,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(251, 248, 242, 0.94);
+  background: rgba(250, 246, 238, 0.94);
   backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
@@ -606,7 +606,7 @@ nav a.nav-link.active {
   flex-direction: column;
   background: #ffffff;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(230, 222, 215, 0.7);
+  border: 1px solid var(--color-border);
   box-shadow: 0 4px 18px rgba(75, 40, 22, 0.05);
   overflow: hidden;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
@@ -854,7 +854,7 @@ nav a.nav-link.active {
 
 .exceptional-homes .customer-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin: 0;
 }
@@ -922,8 +922,8 @@ nav a.nav-link.active {
 
 .founders-layout {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
   align-items: start;
 }
 
@@ -936,43 +936,59 @@ nav a.nav-link.active {
   width: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--gradient-dark);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px rgba(75, 40, 22, 0.08);
+  border: 1px solid var(--color-border);
 }
 
 .founders-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 822 / 444;
+  aspect-ratio: 16 / 9;
   display: block;
   object-fit: cover;
-  border-radius: var(--radius-md);
 }
 
 .founders-ident-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 16px;
   margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--color-border);
+}
+
+.founder-person {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  box-shadow: 0 3px 14px rgba(75, 40, 22, 0.04);
+  display: flex;
+  flex-direction: column;
 }
 
 .founder-person .eyebrow {
-  margin-bottom: 4px;
+  font-family: var(--font-ui);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
 }
 
 .founder-person h3 {
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--color-text-title);
   margin: 0 0 6px;
+  line-height: 1.25;
 }
 
 .founder-person p {
   font-size: 13px;
   color: var(--color-text-body);
   line-height: 1.5;
+  margin: 0;
 }
 
 .founders-content-col {
@@ -981,15 +997,28 @@ nav a.nav-link.active {
   gap: 24px;
 }
 
+.founders-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 600;
+  color: var(--color-text-title);
+  line-height: 1.25;
+  margin: 8px 0 14px;
+  letter-spacing: -0.01em;
+}
+
 .founders-intro {
-  font-size: 14px;
+  font-size: 14.5px;
   color: var(--color-text-body);
   line-height: 1.6;
+  max-width: 65ch;
+  margin: 0;
 }
 
 .company-bg-block {
-  padding-top: 20px;
+  padding-top: 22px;
   border-top: 1px solid var(--color-border);
+  max-width: 65ch;
 }
 
 .company-bg-block h3 {
@@ -1087,12 +1116,13 @@ nav a.nav-link.active {
 
 .craftsmen-slide {
   flex: 0 0 calc((100% - 3 * 16px) / 3.4); /* Desktop shows 3 to 4 images */
-  height: 260px;
+  aspect-ratio: 4 / 3;
+  height: 250px;
   border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
   background: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 16px rgba(75, 40, 22, 0.05);
   border: 1px solid var(--color-border);
 }
 
@@ -1101,6 +1131,7 @@ nav a.nav-link.active {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%;
   display: block;
   border-radius: inherit;
   user-select: none;
@@ -1109,8 +1140,8 @@ nav a.nav-link.active {
 
 .craftsmen-arrow {
   flex-shrink: 0;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -1119,6 +1150,15 @@ nav a.nav-link.active {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(75, 40, 22, 0.06);
+  z-index: 2;
+}
+
+.craftsmen-arrow svg {
+  width: 18px;
+  height: 18px;
+}
   transition: all 0.2s ease;
   box-shadow: var(--shadow-sm);
   z-index: 2;
@@ -1205,7 +1245,7 @@ nav a.nav-link.active {
   border-radius: 22px;
   padding: 30px;
   box-shadow: 0 4px 18px rgba(75, 40, 22, 0.05);
-  border: 1px solid rgba(230, 222, 215, 0.65);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1765,8 +1805,15 @@ footer {
     gap: 14px;
   }
   .founders-layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .founders-content-col {
+    order: 1;
+  }
+  .founders-media-col {
+    order: 2;
   }
   .milestones-list {
     grid-template-columns: 1fr;

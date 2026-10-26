@@ -94,26 +94,9 @@ async function handleRequest(req, res) {
 const PORT = 3000;
 
 const serverIPv4 = http.createServer(handleRequest);
-const serverIPv6 = http.createServer(handleRequest);
 
-serverIPv4.listen(PORT, '127.0.0.1', () => {
+serverIPv4.listen(PORT, '0.0.0.0', () => {
   console.log(`Svvayam app running on port ${PORT}`);
   console.log(`- http://localhost:${PORT}`);
   console.log(`- http://127.0.0.1:${PORT}`);
 });
-
-serverIPv6.listen(PORT, '::1', () => {
-  // IPv6 localhost binding enabled
-}).on('error', (err) => {
-  if (err.code !== 'EADDRINUSE') {
-    console.warn(`IPv6 localhost binding notice: ${err.message}`);
-  }
-});
-
-function shutdown() {
-  serverIPv4.close();
-  serverIPv6.close();
-  process.exit(0);
-}
-process.on('SIGINT', shutdown);
-process.on('SIGTERM', shutdown);

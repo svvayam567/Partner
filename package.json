@@ -1,10 +1,11 @@
 {
-  "name": "svvayam-partner-app",
+  "name": "partner-app",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "check": "node --check server.js && node --check public/app.js"
+    "now": "node server.js"
   }
 }
